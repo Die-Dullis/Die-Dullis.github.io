@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/resources/css/style_diashow.css">
+    <link rel="stylesheet" href="/public/resources/css/style_projects_search.css">
+    
+    <title>Project</title>
+</head>
+<body>
+<main>
+
+<section class="slideshow-container">   
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="/public/resources/images/test.jpg" style=width:100%>
+      <div class="text">1</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="/public/resources/images/test.jpg" style=width:100%>
+      <div class="text">2</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="/public/resources/images/test.jpg" style=width:100%>
+      <div class="text">3</div>
+    </div>
+    
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    
+    </div>
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+</section>
+
+<section>
+    <input id="searchbar" 
+               onkeyup="search_projects()" 
+               type="text" name="search" 
+               placeholder="Search Projects..">
+
+        <ul id='list'>
+            <li class="project">Cat</li>
+            <li class="project">Dog</li>
+            <li class="project">Elephant</li>
+            <li class="project">Fish</li>
+            <li class="project">Gorilla</li>
+            <li class="project">Monkey</li>
+            <li class="project">Turtle</li>
+            <li class="project">Whale</li>
+            <li class="project">Alligator</li>
+            <li class="project">Donkey</li>
+            <li class="project">Horse</li>
+        </ul>
+</section>
+
+<section>
+    
+</section>
+
+
+</main>
+<script src="/public/resources/scripts/diashow.js"></script>
+<script src="/public/resources/scripts/search_projects.js"></script>
+</body>
+</html>
