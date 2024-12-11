@@ -1,31 +1,17 @@
-function searchText() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const paragraphs = document.querySelectorAll('p');
+function search_projects() {
 
-    paragraphs.forEach(paragraph => {
-        // Remove previous highlights
-        paragraph.innerHTML = paragraph.textContent;
+    let input = document.getElementById('searchbar').value.trim().toLowerCase();
+    let parentElement = document.getElementById('repo-list');
+    let children = parentElement.getElementsByTagName('content-box');
 
-        if (input) {
-            const regex = new RegExp(input, 'gi');
-            paragraph.innerHTML = paragraph.innerHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+    
+    for (let i = 0; i < children.length; i++) {
+        let child = children[i];
+        
+        if (child.id && !child.id.toLowerCase().includes(input)) {
+            child.style.display = "none"; // Hide non-matching elements
+        } else {
+            child.style.display = ""; // Show matching elements
         }
-    });
+    }
 }
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('searchInput').addEventListener('input', function () {
-        const searchValue = this.value.trim().toLowerCase();
-        const cards = document.querySelectorAll('.Blog .post');
-
-        cards.forEach(card => {
-            const projectName = card.querySelector('#title').textContent.trim().toLowerCase();
-            if (projectName.includes(searchValue)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
