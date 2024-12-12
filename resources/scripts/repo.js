@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'Ruby': '#701516',
         'Go': '#00ADD8',
         'HTML': '#e34c26'
-        // Add more languages and their colors as needed
     };
 
     fetch(`https://api.github.com/orgs/${ORG_NAME}/repos`)
@@ -22,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(repos => {
             repos.forEach(repo => {
                 const li = document.createElement('li');
-                li.classList.add('content-box');
+                li.classList.add('content-box','half','content-search');
                 li.id = repo.name;
-                
+
                 const div = document.createElement('div');
-                div.classList.add('card')
+                div.classList.add('card');
                 li.appendChild(div);
-                
+
                 // Repository name
                 const link = document.createElement('a');
                 link.href = repo.html_url;
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const description = document.createElement('p');
                 description.textContent = repo.description || 'No description';
                 div.appendChild(description);
-                description.classList.add('card-content')
+                description.classList.add('card-content');
 
                 // Primary language with color dot
                 if (repo.language) {
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const updatedAt = new Date(repo.updated_at).toLocaleString();
                 const activity = document.createElement('p');
                 activity.classList.add('activity');
-                activity.classList.add('card-content')
+                activity.classList.add('card-content');
                 activity.textContent = `Last updated: ${updatedAt}`;
                 div.appendChild(activity);
 
@@ -67,5 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 repoList.appendChild(li);
             });
         })
-        .catch(error => console.error('Error fetching repositories:', error));
+        .catch(error => {
+            document.querySelector('.warning').classList.remove('off');
+            console.error('Error fetching repositories:', error);
+        });
 });
