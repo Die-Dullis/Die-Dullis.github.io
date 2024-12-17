@@ -14,6 +14,12 @@
     .middle{
         width: 85%;
     }
+    .content-title{
+        font-size: 30px;
+    }
+    .content-text{
+        font-size: 20px;
+    }
 }
 .item {
     display: flex;
